@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'payload.wsgi.application'
 with open('../environment/local.env', 'r') as f:
     envs = f.read()
 
-DB = {}
+# HACK
 envvars = envs.split('\n')
 for var in envvars:
     x = var.split('=')
@@ -86,15 +86,16 @@ for var in envvars:
         continue
     k, v = x
     os.environ[k] = v
+# /HACK
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': get_envvar('DATABASE_NAME'),
-        #'USER': get_envvar('DATABASE_USER'),
-        #'PASSWORD': get_envvar('DATABASE_PASSWORD'),
-        #'HOST': get_envvar('DATABASE_HOST'),
-        #'PORT': get_envvar('DATABASE_PORT')
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': get_envvar('DATABASE_NAME'),
+        'USER': get_envvar('DATABASE_USER'),
+        'PASSWORD': get_envvar('DATABASE_PASSWORD'),
+        'HOST': get_envvar('DATABASE_HOST'),
+        'PORT': get_envvar('DATABASE_PORT')
     },
 }
 
