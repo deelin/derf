@@ -106,3 +106,4 @@ ENV/
 ##########
 environment/*.env
 payload/db.sqlite3
+payload/static/
