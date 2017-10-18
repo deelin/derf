@@ -8,6 +8,9 @@
 5. `cd ~/projects/ ; git clone https://github.com/deelin/derf/`
 
 
-# Set up supervisord/uWSGI
+# Set up server
 1. `sudo ln -s -f $PROJECT_ROOT/nginx/payload.conf /etc/nginx/conf.d/virtual.conf`
 2. `sudo ln -s -f $PROJECT_ROOT/supervisord/supervisord.conf /etc/sueprvisord.conf`
+3. Change `nginx` worker user to be `ec2-user`
+    - open `/etc/nginx/nginx.conf`
+    - Change "user nginx" to "user ec2-user"
