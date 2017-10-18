@@ -8,6 +8,9 @@ class Role(models.Model):
     name = models.CharField(max_length=20)
     description = models.TextField(null=True, blank=True)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Hero(models.Model):
     role = models.ForeignKey(Role)
@@ -22,6 +25,9 @@ class Hero(models.Model):
 
     class Meta:
         verbose_name_plural = "Heroes"
+
+    def __unicode__(self):
+        return self.name
 
 
 class Ability(models.Model):
@@ -40,6 +46,9 @@ class Ability(models.Model):
     class Meta:
         verbose_name_plural = "Abilities"
 
+    def __unicode__(self):
+        return self.name
+
 
 class Emote(models.Model):
     hero = models.ForeignKey(Hero)
@@ -49,3 +58,6 @@ class Emote(models.Model):
 
     # URL to emote video
     video = models.CharField(max_length=250, null=True, blank=True) 
+
+    def __unicode__(self):
+        return self.name

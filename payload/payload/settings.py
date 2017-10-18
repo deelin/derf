@@ -28,6 +28,7 @@ SECRET_KEY = '#9o%39-7z!icfw4i)p(tv(wq_d7s3+(8-%=(+rglp=xakh2v40'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'localhost',
     'payloadpusher.gg'
 ]
 
