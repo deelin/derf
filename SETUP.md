@@ -2,7 +2,7 @@
 
 1. `sudo yum install gcc git nginx python-devel mysql-devel`
 2. `pip install --user -r $PROJECT_ROOT/requirements.txt`
-3. `sudo pip install uwsgi`
+3. `sudo -s && pip install uwsgi && exit`
 4. `sudo easy_install supervisor`
 5. `cd ~/projects/ ; git clone https://github.com/deelin/derf/`
 
