@@ -27,7 +27,9 @@ SECRET_KEY = '#9o%39-7z!icfw4i)p(tv(wq_d7s3+(8-%=(+rglp=xakh2v40'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'payloadpusher.gg'
+]
 
 
 # Application definition
