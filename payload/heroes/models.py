@@ -61,3 +61,11 @@ class Emote(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class Interaction(models.Model):
+    ability1 = models.ForeignKey(Ability)
+    ability2 = models.ForeignKey(Ability)
+
+    description = models.TextField()
+    video = models.CharField(max_length=250, null=True, blank=True)
