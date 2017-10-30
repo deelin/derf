@@ -64,8 +64,8 @@ class Emote(models.Model):
 
 
 class Interaction(models.Model):
-    ability1 = models.ForeignKey(Ability)
-    ability2 = models.ForeignKey(Ability)
+    ability1 = models.ForeignKey(Ability, related_name="ability_initiator")
+    ability2 = models.ForeignKey(Ability, related_name="ability_responder")
 
     description = models.TextField()
     video = models.CharField(max_length=250, null=True, blank=True)
