@@ -69,3 +69,6 @@ class Interaction(models.Model):
 
     description = models.TextField()
     video = models.CharField(max_length=250, null=True, blank=True)
+
+    def __unicode__(self):
+        return "%s - %s Interaction" % (self.ability1.name, self.ability2.name)
