@@ -1,4 +1,7 @@
 Django==1.11.6
 MySQL-python==1.2.5
+djangorestframework
+django-filter
+markdown
 pytz==2017.2
 wheel==0.24.0
