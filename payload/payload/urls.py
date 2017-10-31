@@ -17,10 +17,11 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from . import views
+from compare import views as compare_views
 
 urlpatterns = [
     #url(r'^heroes/', include('heroes.urls')),
-    url(r'^$', views.home),
+    url(r'^$', compare_views.compare),
     url(r'^api/', include('heroes.api.urls')),
     url(r'^admin/', admin.site.urls),
 ]
