@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     'payload',
     'heroes',
-    'compare',
 ]
 
 MIDDLEWARE = [
