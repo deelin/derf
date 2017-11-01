@@ -1,11 +1,11 @@
 'use strict';
 
-var compareApp = angular.module('compareApp', [
+var heroApp = angular.module('heroApp', [
 	'ui.router',
-    'compareControllers',
+    'heroControllers',
 ]);
 
-compareApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+heroApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     // For any unmatched url, redirect to /
     $urlRouterProvider.otherwise("/");
     $locationProvider.html5Mode({enabled: true});
@@ -14,7 +14,7 @@ compareApp.config(function($stateProvider, $urlRouterProvider, $locationProvider
     $stateProvider
         .state('main', {
             url: '/',
-            templateUrl: '/static/compare/html/main.html',
+            templateUrl: '/static/hero/html/main.html',
             controller: 'mainCtrl',
         })
 });
