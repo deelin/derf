@@ -12,6 +12,7 @@
                     <div class="title">hero name
                         <i class="fa fa-angle-down" style='float:right;'></i>
                     </div>
+                    <select ng-options="hero as hero.name for hero in heroes track by hero.id" ng-model="heroOne"></select>
                     <div class="options">
                         <div class="option">option 1</div>
                         <div class="option">option 2</div>
@@ -32,6 +33,7 @@
                     <div class="title">hero name
                         <i class="fa fa-angle-down" style='float:right;'></i>
                     </div>
+                    <select ng-options="hero as hero.name for hero in heroes track by hero.id" ng-model="heroTwo"></select>
                     <div class="options">
                         <div class="option">option 1</div>
                         <div class="option">option 2</div>
@@ -50,7 +52,11 @@
         <button>Compare!</button>
     </div>
     <div class="card content flex layout vertical">
-        <div class="video"></div>
-        <div class="description flex dim">comparison description</div>
+        <div class="video">
+            <video src="{{video}}" controls>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="description flex dim">{{heroes}}</div>
     </div>
 </div>

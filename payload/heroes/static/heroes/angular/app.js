@@ -2,6 +2,7 @@
 
 var heroApp = angular.module('heroApp', [
 	'ui.router',
+	'heroServices',
     'heroControllers',
 ]);
 
@@ -14,7 +15,7 @@ heroApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $
     $stateProvider
         .state('main', {
             url: '/',
-            templateUrl: '/static/hero/html/main.html',
+            templateUrl: '/static/heroes/html/main.html',
             controller: 'mainCtrl',
         })
 });

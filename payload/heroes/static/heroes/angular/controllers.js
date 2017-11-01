@@ -1,9 +1,15 @@
 'use strict';
 
-var compareControllers = angular.module('compareControllers', []);
+var heroControllers = angular.module('heroControllers', []);
 
-compareControllers.controller('mainCtrl', ['$scope', '$http', '$state',
-    function($scope, $http, $state) {
-      	console.log("controller loaded")
+heroControllers.controller('mainCtrl', ['$scope', '$http', '$state', 'Hero',
+    function($scope, $http, $state, Hero) {
+        Hero.getHeroes()
+        .success(function(data){
+            $scope.heroes = data;
+        })
+        .error(function(data){
+            console.log(data)
+        })
     }
 ])

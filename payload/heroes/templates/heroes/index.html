@@ -3,22 +3,23 @@
         <base href="/">
 
         <!-- css -->
-        <link href="{{STATIC_URL}}compare/css/base.css" rel="stylesheet" type="text/css"/>
-        <link href="{{STATIC_URL}}compare/css/flexbox.css" rel="stylesheet" type="text/css"/>
-        <link href="{{STATIC_URL}}compare/css/compare.css" rel="stylesheet" type="text/css"/>
+        <link href="{{STATIC_URL}}heroes/css/base.css" rel="stylesheet" type="text/css"/>
+        <link href="{{STATIC_URL}}heroes/css/flexbox.css" rel="stylesheet" type="text/css"/>
+        <link href="{{STATIC_URL}}heroes/css/heroes.css" rel="stylesheet" type="text/css"/>
 
         <!-- vendored css -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
         <!-- vendored js -->
-        <script type='text/javascript' src="{{STATIC_URL}}compare/js/vendored/jquery-3.1.0.min.js"></script>
-        <script type='text/javascript' src="{{STATIC_URL}}compare/js/vendored/angular-1.5.8.min.js"></script>
-        <script type='text/javascript' src="{{STATIC_URL}}compare/js/vendored/angular-uirouter-0.2.10.min.js"></script>
+        <script type='text/javascript' src="{{STATIC_URL}}heroes/js/vendored/jquery-3.1.0.min.js"></script>
+        <script type='text/javascript' src="{{STATIC_URL}}heroes/js/vendored/angular-1.5.8.min.js"></script>
+        <script type='text/javascript' src="{{STATIC_URL}}heroes/js/vendored/angular-uirouter-0.2.10.min.js"></script>
 
         <!-- angular app -->
-        <script type='text/javascript' src="{{STATIC_URL}}compare/angular/app.js"></script>
-        <script type='text/javascript' src="{{STATIC_URL}}compare/angular/controllers.js"></script>
+        <script type='text/javascript' src="{{STATIC_URL}}heroes/angular/app.js"></script>
+        <script type='text/javascript' src="{{STATIC_URL}}heroes/angular/services.js"></script>
+        <script type='text/javascript' src="{{STATIC_URL}}heroes/angular/controllers.js"></script>
 
     </head>
-    <body class="layout vertical" id="compareApp" ng-app="compareApp" ui-view></body>
+    <body class="layout vertical" id="heroApp" ng-app="heroApp" ui-view></body>
 </html>
