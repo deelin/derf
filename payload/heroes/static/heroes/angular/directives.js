@@ -1,17 +1,19 @@
 var heroesDirectives = angular.module('heroesDirectives', []);
 
-heroesDirectives.controller('heroController', ['$scope', '$controller', '$rootScope', 
-    function($scope, $controller, $rootScope, Course) {
+heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', '$rootScope', 
+    function($scope, $controller, $rootScope) {
         
     }
 ])
-.directive('hero', function($rootScope) {
+.directive('heroSelector', function($rootScope) {
     return {
         restrict: 'E',
         scope: {
-            'hero': '=',
+            'heroes': '=',
+            'selectedHero': '=',
+            'selectedAbility': '=',
         },
-        templateUrl: '/static/heroes/html/directives/hero.html' + '?v=' + $rootScope.cachebuster,
-        controller: 'heroController',
+        templateUrl: '/static/heroes/html/directives/hero-selector.html' + '?v=' + $rootScope.cachebuster,
+        controller: 'heroSelectorController',
     };
 });
