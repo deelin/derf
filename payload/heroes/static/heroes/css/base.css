@@ -33,18 +33,18 @@ button{
     opacity:0.25;
 }
 
-<<<<<<< HEAD
+
 .logo{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     background-image: url("/static/heroes/img/logos/pp_logo.png");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    
+    margin:0 auto;
 }
 
-=======
->>>>>>> more UI
 .disabled{
     opacity:0.5;
     pointer-events:none;

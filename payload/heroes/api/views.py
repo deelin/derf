@@ -32,7 +32,7 @@ class HeroView(mixins.ListModelMixin, generics.GenericAPIView):
     """
     List view for heroes
     """
-    queryset = Hero.objects.all()
+    queryset = Hero.objects.all().order_by('name')
     serializer_class = HeroSerializer
 
     def get(self, request, *args, **kwargs):

@@ -37,8 +37,8 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
 ]);
 
 // responsible for getting/displaying/sharing interaction data
-heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', 'Hero',
-    function($scope, $http, $state, Hero) {
+heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', '$sce', 'Hero',
+    function($scope, $http, $state, $sce, Hero) {
         // PARAMS
         // //////////////////
 
@@ -49,6 +49,9 @@ heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', 'Hero
             Hero.getInteractions($state.params.ability0, $state.params.ability1)
             .success(function(data){
                 $scope.loadingInteration = false;
+                if (data.video){
+                    data.video = $sce.trustAsResourceUrl(data.video);
+                }
                 $scope.interaction = data;
             })
             .error(function(data){

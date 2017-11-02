@@ -1,39 +1,41 @@
 <div class="hero-select">
     <div class="title">
         <div class="hero-option layout horizontal">
-            <div class="hero-option-icon"
-                 style="background-image:url({{selectedHero.icon}})" />
-            <div class="flex">
+            <div class="rounded-image-container hero-image current smaller">
+                <div class="rounded-image" style="background-image:url({{selectedHero.icon}})"></div>
+            </div>
+            <div class="flex self-center">
                 {{selectedHero.name}}
             </div>
+            <i class="fa fa-angle-down self-center"></i>
         </div>
-        <i class="fa fa-angle-down" style='float:right;'></i>
     </div>
     <div class="options">
         <div class="option" ng-repeat="hero in heroes"
             ng-class="{'selected':hero.id==selectedHero.id}"
             ng-click="setHero(hero)">
             <div class="hero-option layout horizontal">
-                <div class="hero-option-icon"
-                     style="background-image:url({{hero.icon}})" />
-                <div class="flex">
+                <div class="rounded-image-container hero-image smaller">
+                    <div class="rounded-image" style="background-image:url({{hero.icon}})"></div>
+                </div>
+                <div class="flex self-center">
                     {{hero.name}}
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="label">Description</div>
+<div class="description">{{selectedHero.description}}</div>
+
+<div class="label">Abilities</div>
 <div class="abilities layout horizontal wrap">
     <div ng-if="loadingAbilities" style="text-align:center;width:100%;">
         <i class="fa fa-spinner fa-spin superdim" style="font-size:31px;margin:10px;"></i>
     </div>
-    <div class="ability" ng-repeat="ability in abilities"
-        ng-class="{'selected':ability==selectedAbility}"
+    <div class="rounded-image-container ability-image" ng-repeat="ability in abilities"
+        ng-class="{'current':ability==selectedAbility}"
         ng-click="setAbility(ability)">
-        <div class="ability-icon-container">
-            <div class="ability-icon"
-                 style="background-image:url({{ability.icon}})" />
-        </div>
+        <div class="rounded-image" style="background-image:url({{ability.icon}})"></div>
     </div>
 </div>
-<div class="description dim">{{selectedHero.description}}</div>

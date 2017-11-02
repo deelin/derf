@@ -1,6 +1,7 @@
-<div class="card header layout horizontal">
+<!-- <div class="card header layout horizontal">
     <div class="logo" />
-</div>
+</div> -->
+<div class="logo"/>
 <div class="layout horizontal flex">
     <div class="card sidebar layout vertical">
         <div class="heroes" ng-if="heroes.length">
@@ -10,12 +11,13 @@
                 selected-abilities="selectedAbilities" index="1"></hero-selector>
         </div>
         <a ui-sref=".comparison({'hero0':selectedHeroes[0].id, 'hero1':selectedHeroes[1].id, 'ability0':selectedAbilities[0].id, 'ability1':selectedAbilities[1].id})"
-            style="margin-top:auto;">
+            style="margin-top:auto;"
+            ng-if="selectedHeroes[0] && selectedHeroes[1] && selectedAbilities[0] && selectedAbilities[1]">
             <button>Compare!</button>
         </a>
     </div>
     <div class="card content flex layout vertical" ui-view>
-        <div class="superdim" style="padding:30px;text-align:center;" ng-show="!loadingHeroes">
+        <div class="superdim" style="padding:50px 10px;text-align:center;" ng-show="!loadingHeroes">
             <h1>No heroes/abilities selected</h1>
             <i class="fa fa-frown-o" style="font-size:100px;margin:10px 0;"></i>
             <h2>Please pick some using the sidebar</h2>

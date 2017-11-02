@@ -21,16 +21,18 @@
     width:224px;
 }
 .card.sidebar hero-selector{
-    margin-bottom:30px;
+    margin-bottom:50px;
+    display:block;
 }
 .card.sidebar hero-selector .hero-select{
     margin-bottom:10px;
     position:relative;
 }
 .card.sidebar hero-selector .hero-select .title{
-    padding:10px;
+    padding:5px;
     border:1px solid rgba(255,255,255,0.1);
     border-radius:2px;
+    padding-left:7px;
 }
 .card.sidebar hero-selector .hero-select .options{
     display:none;
@@ -40,12 +42,14 @@
     right:0;
     background:#34495e;
     z-index:100;
+    
+    height:200px;
 }
 .card.sidebar hero-selector .hero-select:hover .options{
     display:initial;
 }
 .card.sidebar hero-selector .hero-select .options .option{
-    padding:10px;
+    padding:5px;
     border-left:3px solid transparent;
     cursor:pointer;
 }
@@ -57,22 +61,17 @@
 .card.sidebar hero-selector .abilities{
     margin-bottom:10px;
 }
-.card.sidebar hero-selector .abilities .ability{
-    margin:0 5px 5px;
-    width:40px;
-    height:40px;
-    background:rgba(0,0,0,0);
-    border-radius:100%;
-    border:3px solid rgba(255,255,255,0.2);
-    cursor:pointer;
+
+.card.sidebar hero-selector .label{
+    font-weight:bold;
+    font-size:10px;
+    text-transform:uppercase;
+    opacity:0.5;
+    margin-bottom:10px;
 }
-.card.sidebar hero-selector .abilities .ability:hover,
-.card.sidebar hero-selector .abilities .ability.selected{
-    border-color:#2980b9;
-}
+
 .card.sidebar hero-selector .description{
     margin-bottom:20px;
-    padding:0 5px;
     font-size: 12px;
 }
 .card.sidebar button{
@@ -84,33 +83,52 @@
     
 }
 .card.content .video{
-    height:300px;
-    border:1px solid rgba(255,255,255,0.1);
     margin-bottom:20px;
-    border-radius:2px;
+    max-height:450px;
 }
 .card.content .description{
     
 }
 
-.hero-option-icon{
-    height:30px;
-    width:30px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
-.ability-icon-container{
-    height:40px;
+.rounded-image-container{
     width:40px;
+    height:40px;
+    background:rgba(25, 34, 41, 1);
+    border: 3px solid rgba(255,255,255,0.75);
+    border-radius:100%;
 }
-
-.ability-icon{
-    height:36px;
-    width:36px;
-    margin:2px;
+.rounded-image{
+    width:30px;
+    height:30px;
+    margin:5px;
+    border-radius:100%;
+    
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+.rounded-image-container.current{
+    border-color:#2980b9;
+}
+
+.rounded-image-container.smaller{
+    width:30px;
+    height:30px;
+}
+.rounded-image-container.smaller .rounded-image{
+    width:26px;
+    height:26px;
+    margin:2px;
+}
+
+.hero-image{
+    margin-right:10px;
+}
+
+.ability-image{
+    margin:2px;
+    cursor:pointer;
+}
+.ability-image:hover{
+    border-color:#2980b9;
 }
