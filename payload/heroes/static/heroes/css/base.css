@@ -41,3 +41,8 @@ button{
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
+
+.disabled{
+    opacity:0.5;
+    pointer-events:none;
+}

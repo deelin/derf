@@ -13,17 +13,26 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
             if ($state.params.hero1){
                 // TODO: set her from state
             } else {
-                $scope.setHero($scope.heroes[0]);
+                $scope.setHero($scope.heroes[$scope.index]);
+            }
+        }
+        
+        $scope.setInitialAbility = function(){
+            if ($state.params.ability1){
+                // TODO: set her from state
+            } else {
+                $scope.setAbility($scope.abilities[0]);
             }
         }
         
         $scope.getHeroAbilities = function(){
+            $scope.abilities = null;
             $scope.loadingAbilities = true;
             Hero.getAbilities($scope.selectedHero.id)
             .success(function(data){
                 $scope.loadingAbilities = false;
                 $scope.abilities = data;
-                $scope.setAbility($scope.abilities[0]);
+                $scope.setInitialAbility();
             })
             .error(function(){
                 $scope.loadingAbilities = false;
@@ -55,6 +64,7 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
             'heroes': '=',
             'selectedHero': '=',
             'selectedAbility': '=',
+            'index': '=',
         },
         templateUrl: '/static/heroes/html/directives/hero-selector.html' + '?v=' + $rootScope.cachebuster,
         controller: 'heroSelectorController',

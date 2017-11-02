@@ -24,8 +24,8 @@
     </div>
 </div>
 <div class="abilities layout horizontal wrap">
-    <div ng-if="loadingAbilities" style="line-height:46px;">
-        <i class="fa fa-spinner fa-spin superdim" style="font-size:20px;"></i>
+    <div ng-if="loadingAbilities" style="text-align:center;width:100%;">
+        <i class="fa fa-spinner fa-spin superdim" style="font-size:31px;margin:10px;"></i>
     </div>
     <div class="ability" ng-repeat="ability in abilities"
         ng-class="{'selected':ability==selectedAbility}"

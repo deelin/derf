@@ -32,6 +32,16 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
         // ACTIONS
         // //////////////////
         
+        
+        $scope.compare = function(){
+            console.log($scope.hero1)
+            if (!$scope.hero1 || !$scope.hero2 || !$scope.ability1 || !$scope.ability2){
+                alert("select some heros plz")
+            } else {
+                
+            }
+        }
+        
         // INIT
         // //////////////////
         $scope.getHeroes();
@@ -39,8 +49,8 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
 ]);
 
 // responsible for getting/displaying/sharing interaction data
-heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state',
-    function($scope, $http, $state) {
+heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', 'Hero',
+    function($scope, $http, $state, Hero) {
         
     }
 ]);
