@@ -18,9 +18,11 @@ class AbilityView(mixins.ListModelMixin, generics.GenericAPIView):
         import time
         time.sleep(1)
         hero_id = self.request.query_params.get('hero_id', '')
+
+        abilities = Ability.objects.filter(icon__isnull=False)
         if hero_id:
-            return Ability.objects.filter(hero_id=hero_id)
-        return Ability.objects.all()
+            return abilities.filter(hero_id=hero_id)
+        return abilities
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
