@@ -42,8 +42,8 @@
     right:0;
     background:#34495e;
     z-index:100;
-    
     height:200px;
+    overflow:scroll;
 }
 .card.sidebar hero-selector .hero-select:hover .options{
     display:initial;
