@@ -20,8 +20,11 @@ from heroes import views as hero_views
 
 
 urlpatterns = [
-    #url(r'^heroes/', include('heroes.urls')),
+    
+    # interactions views
     url(r'^$', hero_views.interactions),
+    url(r'^comparison/$', hero_views.interactions),
+
     url(r'^api/', include('heroes.api.urls')),
     url(r'^admin/', admin.site.urls),
 ]
