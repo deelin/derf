@@ -1,7 +1,6 @@
-{{heroes}}
-<div class="video">
-    <video src="{{video}}" controls>
+<div class="video" ng-if="video">
+    <video src="{{interaction.video}}" controls>
         Your browser does not support the video tag.
     </video>
 </div>
-<div class="description flex dim">{{heroes}}</div>
+<div class="description flex dim">{{interaction.description}}</div>

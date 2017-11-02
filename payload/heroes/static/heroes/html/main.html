@@ -4,18 +4,17 @@
 <div class="layout horizontal flex">
     <div class="card sidebar layout vertical">
         <div class="heroes" ng-if="heroes.length">
-            <hero-selector heroes="heroes" selected-hero="hero1"
-                selected-ability="ability1" index="0" test="test"></hero-selector>
-            <hero-selector heroes="heroes" selected-hero="hero2"
-                selected-ability="ability2" index="1" test="test"></hero-selector>
+            <hero-selector heroes="heroes" selected-heroes="selectedHeroes"
+                selected-abilities="selectedAbilities" index="0"></hero-selector>
+            <hero-selector heroes="heroes" selected-heroes="selectedHeroes"
+                selected-abilities="selectedAbilities" index="1"></hero-selector>
         </div>
-        <a ui-sref=".comparison({'hero1':hero1.id, 'hero2':hero2.id, 'ability1':ability1.id, 'ability2':ability2.id})"
-            style="margin-top:auto;" ng-class='{"disabled2": "!hero1 || !hero2 || !ability1 || !ability2"}'>
+        <a ui-sref=".comparison({'hero0':selectedHeroes[0].id, 'hero1':selectedHeroes[1].id, 'ability0':selectedAbilities[0].id, 'ability1':selectedAbilities[1].id})"
+            style="margin-top:auto;">
             <button>Compare!</button>
         </a>
     </div>
-    <div class="card content flex layout vertical" ui-view>{{test}}
-        {{hero1}}{{hero2}}{{ability1}}{{ability2}}
+    <div class="card content flex layout vertical" ui-view>
         <div class="superdim" style="padding:30px;text-align:center;" ng-show="!loadingHeroes">
             <h1>No heroes/abilities selected</h1>
             <i class="fa fa-frown-o" style="font-size:100px;margin:10px 0;"></i>

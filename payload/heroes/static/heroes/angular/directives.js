@@ -1,7 +1,7 @@
 var heroesDirectives = angular.module('heroesDirectives', []);
 
-heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', '$state', '$rootScope', 'Hero',
-    function($scope, $controller, $state, $rootScope, Hero) {
+heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', '$state', '$rootScope', '$timeout', 'Hero',
+    function($scope, $controller, $state, $rootScope, $timeout, Hero) {
         // PARAMS
         // //////////////////
         $scope.abilities = null;
@@ -10,25 +10,49 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
         // //////////////////
         
         $scope.setInitialHero = function(){
-            if ($state.params.hero1){
-                // TODO: set her from state
+            if ($scope.heroes){
+                var paramName = "hero" + $scope.index;
+                console.log(paramName)
+                console.log($state.params[paramName])
+                if ($state.params[paramName]){
+                    $scope.hero = $scope.heroes.filter(function(h){
+                        return h.id == parseInt($state.params[paramName])
+                    })[0];
+                    console.log(paramName)
+                    console.log($scope.hero)
+                    $scope.setHero($scope.hero);
+                } else {
+                    $scope.setHero($scope.heroes[$scope.index]);
+                }
             } else {
-                $scope.setHero($scope.heroes[$scope.index]);
+                $timeout(function(){
+                    $scope.setInitialHero();
+                }, 100)
             }
         }
         
         $scope.setInitialAbility = function(){
-            if ($state.params.ability1){
-                // TODO: set her from state
+            if ($scope.abilities){
+                var paramName = "ability" + $scope.index;
+                if ($state.params[paramName]){
+                    $scope.ability = $scope.abilities.filter(function(a){
+                        return a.id == parseInt($state.params[paramName])
+                    })[0];
+                    $scope.setAbility($scope.ability);
+                } else {
+                    $scope.setAbility($scope.abilities[0]);
+                }
             } else {
-                $scope.setAbility($scope.abilities[0]);
+                $timeout(function(){
+                    $scope.setInitialAbility();
+                }, 100)
             }
         }
         
         $scope.getHeroAbilities = function(){
             $scope.abilities = null;
             $scope.loadingAbilities = true;
-            Hero.getAbilities($scope.selectedHero.id)
+            Hero.getAbilities($scope.selectedHeroes[$scope.index].id)
             .success(function(data){
                 $scope.loadingAbilities = false;
                 $scope.abilities = data;
@@ -45,11 +69,13 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
         
         $scope.setHero = function(hero){
             $scope.selectedHero = hero;
+            $scope.selectedHeroes[$scope.index] = hero;
             $scope.getHeroAbilities();
         }
         
         $scope.setAbility = function(ability){
             $scope.selectedAbility = ability;
+            $scope.selectedAbilities[$scope.index] = ability;
         }
         
         $scope.add = function(){
@@ -58,7 +84,10 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
         
         // INIT
         // //////////////////
+        console.log($scope.index);
         $scope.setInitialHero();
+        
+        // console.log($scope.selectedHero.id, $scope.selectedAbilities.id)
     }
 ])
 .directive('heroSelector', function($rootScope) {
@@ -66,10 +95,9 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
         restrict: 'E',
         scope: {
             'heroes': '=',
-            'selectedHero': '=',
-            'selectedAbility': '=',
+            'selectedHeroes': '=',
+            'selectedAbilities': '=',
             'index': '=',
-            'test': '=',
         },
         templateUrl: '/static/heroes/html/directives/hero-selector.html' + '?v=' + $rootScope.cachebuster,
         controller: 'heroSelectorController',

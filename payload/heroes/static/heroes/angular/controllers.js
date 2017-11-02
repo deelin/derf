@@ -8,11 +8,8 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
         // PARAMS
         // //////////////////
         $rootScope.cachebuster = Date.now().toString();
-        $scope.hero1 = null;
-        $scope.hero2 = null;
-        $scope.ability1 = null;
-        $scope.ability2 = null;
-        $scope.test = 1;
+        $scope.selectedHeroes = [undefined, undefined];
+        $scope.selectedAbilities = [undefined, undefined];
         
         // METHODS
         // //////////////////
@@ -33,16 +30,6 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
         // ACTIONS
         // //////////////////
         
-        
-        $scope.compare = function(){
-            console.log($scope.hero1)
-            if (!$scope.hero1 || !$scope.hero2 || !$scope.ability1 || !$scope.ability2){
-                alert("select some heros plz")
-            } else {
-                
-            }
-        }
-        
         // INIT
         // //////////////////
         $scope.getHeroes();
@@ -52,6 +39,29 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
 // responsible for getting/displaying/sharing interaction data
 heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', 'Hero',
     function($scope, $http, $state, Hero) {
+        // PARAMS
+        // //////////////////
+
+        // METHODS
+        // //////////////////
+        $scope.getInteraction = function(){
+            $scope.loadingInteration = true;
+            Hero.getInteractions($state.params.ability0, $state.params.ability1)
+            .success(function(data){
+                $scope.loadingInteration = false;
+                $scope.interaction = data;
+            })
+            .error(function(data){
+                $scope.loadingInteration = false;
+                alert("error loading interaction")
+            })
+        }
+
+        // ACTIONS
+        // //////////////////
         
+        // INIT
+        // //////////////////
+        $scope.getInteraction();
     }
 ]);
