@@ -4,20 +4,20 @@
     <div class="nav-item">nav2</div>
     <div class="nav-item">nav3</div>
 </div>
-<div class="flex layout horizontal">
+<div class="layout horizontal flex">
     <div class="card sidebar layout vertical">
-        <div class="heroes">
+        <div class="heroes" ng-if="heroes.length">
             <hero-selector heroes="heroes" selected-hero="hero1"
                 selected-ability="ability1"></hero-selector>
             <hero-selector heroes="heroes" selected-hero="hero2"
                 selected-ability="ability2"></hero-selector>
         </div>
-        <a ui-sref=".comparison({param1:'yo'})">
+        <a ui-sref=".comparison({param1:'yo'})" style="margin-top:auto;">
             <button>Compare!</button>
         </a>
     </div>
     <div class="card content flex layout vertical" ui-view>
-        <div class="superdim" style="padding:30px;text-align:center;">
+        <div class="superdim" style="padding:30px;text-align:center;" ng-show="!loadingHeroes">
             <h1>No heroes/abilities selected</h1>
             <i class="fa fa-frown-o" style="font-size:100px;margin:10px 0;"></i>
             <h2>Please pick some using the sidebar</h2>

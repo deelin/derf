@@ -7,17 +7,18 @@ var heroServices = angular.module('heroServices', []);
 heroServices.factory('Hero', ['$http',
     function($http){
         var HeroMethods = {};
+        var rootURL = ''
         HeroMethods.getHeroes = function() {
             return $http({
                 method: 'GET',
-                url: '/api/hero/'
+                url: rootURL + '/api/hero/'
             });
         }
 
         HeroMethods.getAbilities = function(hero) {
             return $http({
                 method: 'GET',
-                url: '/api/ability/?hero_id=' + str(hero)
+                url: rootURL + '/api/ability/?hero_id=' + hero
             });
         }
 
@@ -25,7 +26,7 @@ heroServices.factory('Hero', ['$http',
             var url = "/api/interaction/?ability1=" + ability1 + "&ability2=" + ability2
             return $http({
                 method: 'GET',
-                url: url
+                url: rootURL + url
             });
         }
 

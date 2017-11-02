@@ -17,12 +17,15 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
         // //////////////////
         
         $scope.getHeroes = function(){
+            $scope.loadingHeroes = true;
             Hero.getHeroes()
             .success(function(data){
+                $scope.loadingHeroes = false;
                 $scope.heroes = data;
             })
             .error(function(data){
-                console.log(data)
+                $scope.loadingHeroes = false;
+                alert("error loading heroes")
             })
         }
         
