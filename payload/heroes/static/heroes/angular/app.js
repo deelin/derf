@@ -20,7 +20,7 @@ heroApp.config(function($stateProvider, $urlRouterProvider, $locationProvider, $
             controller: 'mainCtrl',
         })
         .state('main.comparison', {
-            url: 'comparison/?hero1&hero2&heroAbility1&heroAbility2',
+            url: 'comparison/?hero0&hero1&ability0&ability1',
             templateUrl: '/static/heroes/html/comparison.html',
             controller: 'comparisonCtrl',
         })
