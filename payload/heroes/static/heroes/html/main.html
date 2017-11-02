@@ -5,16 +5,16 @@
     <div class="card sidebar layout vertical">
         <div class="heroes" ng-if="heroes.length">
             <hero-selector heroes="heroes" selected-hero="hero1"
-                selected-ability="ability1" index="0"></hero-selector>
+                selected-ability="ability1" index="0" test="test"></hero-selector>
             <hero-selector heroes="heroes" selected-hero="hero2"
-                selected-ability="ability2" index="1"></hero-selector>
+                selected-ability="ability2" index="1" test="test"></hero-selector>
         </div>
         <a ui-sref=".comparison({'hero1':hero1.id, 'hero2':hero2.id, 'ability1':ability1.id, 'ability2':ability2.id})"
             style="margin-top:auto;" ng-class='{"disabled2": "!hero1 || !hero2 || !ability1 || !ability2"}'>
             <button>Compare!</button>
         </a>
     </div>
-    <div class="card content flex layout vertical" ui-view>
+    <div class="card content flex layout vertical" ui-view>{{test}}
         {{hero1}}{{hero2}}{{ability1}}{{ability2}}
         <div class="superdim" style="padding:30px;text-align:center;" ng-show="!loadingHeroes">
             <h1>No heroes/abilities selected</h1>

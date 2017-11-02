@@ -12,6 +12,7 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
         $scope.hero2 = null;
         $scope.ability1 = null;
         $scope.ability2 = null;
+        $scope.test = 1;
         
         // METHODS
         // //////////////////

@@ -52,6 +52,10 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
             $scope.selectedAbility = ability;
         }
         
+        $scope.add = function(){
+            $scope.test += 1;
+        }
+        
         // INIT
         // //////////////////
         $scope.setInitialHero();
@@ -65,6 +69,7 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
             'selectedHero': '=',
             'selectedAbility': '=',
             'index': '=',
+            'test': '=',
         },
         templateUrl: '/static/heroes/html/directives/hero-selector.html' + '?v=' + $rootScope.cachebuster,
         controller: 'heroSelectorController',
