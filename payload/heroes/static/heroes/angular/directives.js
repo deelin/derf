@@ -12,18 +12,15 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
         $scope.setInitialHero = function(){
             if ($scope.heroes){
                 var paramName = "hero" + $scope.index;
-                console.log(paramName)
-                console.log($state.params[paramName])
                 if ($state.params[paramName]){
                     $scope.hero = $scope.heroes.filter(function(h){
                         return h.id == parseInt($state.params[paramName])
                     })[0];
-                    console.log(paramName)
-                    console.log($scope.hero)
-                    $scope.setHero($scope.hero);
-                } else {
-                    $scope.setHero($scope.heroes[$scope.index]);
                 }
+                if (!$scope.hero){
+                    $scope.hero = $scope.heroes[$scope.index]
+                }
+                $scope.setHero($scope.hero);
             } else {
                 $timeout(function(){
                     $scope.setInitialHero();
@@ -38,10 +35,11 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
                     $scope.ability = $scope.abilities.filter(function(a){
                         return a.id == parseInt($state.params[paramName])
                     })[0];
-                    $scope.setAbility($scope.ability);
-                } else {
-                    $scope.setAbility($scope.abilities[0]);
                 }
+                if (!$scope.ability){
+                    $scope.ability = $scope.abilities[0]
+                }
+                $scope.setAbility($scope.ability);
             } else {
                 $timeout(function(){
                     $scope.setInitialAbility();
@@ -84,7 +82,6 @@ heroesDirectives.controller('heroSelectorController', ['$scope', '$controller', 
         
         // INIT
         // //////////////////
-        console.log($scope.index);
         $scope.setInitialHero();
         
         // console.log($scope.selectedHero.id, $scope.selectedAbilities.id)
