@@ -33,6 +33,7 @@ button{
     opacity:0.25;
 }
 
+<<<<<<< HEAD
 .logo{
     height: 150px;
     width: 150px;
@@ -42,6 +43,8 @@ button{
     background-position: 50% 50%;
 }
 
+=======
+>>>>>>> more UI
 .disabled{
     opacity:0.5;
     pointer-events:none;
