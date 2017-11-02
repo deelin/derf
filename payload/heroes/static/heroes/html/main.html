@@ -4,59 +4,23 @@
     <div class="nav-item">nav2</div>
     <div class="nav-item">nav3</div>
 </div>
-<div class="flex layout horizontal">
+<div class="layout horizontal flex">
     <div class="card sidebar layout vertical">
-        <div class="heroes">
-            <div class="hero">
-                <div class="hero-select">
-                    <div class="title">hero name
-                        <i class="fa fa-angle-down" style='float:right;'></i>
-                    </div>
-                    <select ng-options="hero as hero.name for hero in heroes track by hero.id" ng-model="heroOne"></select>
-                    <div class="options">
-                        <div class="option">option 1</div>
-                        <div class="option">option 2</div>
-                    </div>
-                </div>
-                <div class="abilities layout horizontal">
-                    <div class="ability selected"></div>
-                    <div class="ability"></div>
-                    <div class="ability"></div>
-                    <div class="ability"></div>
-                    <div class="ability"></div>
-                </div>
-                <div class="description dim">description</div>
-            </div>
-            
-            <div class="hero">
-                <div class="hero-select">
-                    <div class="title">hero name
-                        <i class="fa fa-angle-down" style='float:right;'></i>
-                    </div>
-                    <select ng-options="hero as hero.name for hero in heroes track by hero.id" ng-model="heroTwo"></select>
-                    <div class="options">
-                        <div class="option">option 1</div>
-                        <div class="option">option 2</div>
-                    </div>
-                </div>
-                <div class="abilities layout horizontal">
-                    <div class="ability"></div>
-                    <div class="ability"></div>
-                    <div class="ability"></div>
-                    <div class="ability selected"></div>
-                    <div class="ability"></div>
-                </div>
-                <div class="description dim">description</div>
-            </div>
+        <div class="heroes" ng-if="heroes.length">
+            <hero-selector heroes="heroes" selected-hero="hero1"
+                selected-ability="ability1"></hero-selector>
+            <hero-selector heroes="heroes" selected-hero="hero2"
+                selected-ability="ability2"></hero-selector>
         </div>
-        <button>Compare!</button>
+        <a ui-sref=".comparison({param1:'yo'})" style="margin-top:auto;">
+            <button>Compare!</button>
+        </a>
     </div>
-    <div class="card content flex layout vertical">
-        <div class="video">
-            <video src="{{video}}" controls>
-                Your browser does not support the video tag.
-            </video>
+    <div class="card content flex layout vertical" ui-view>
+        <div class="superdim" style="padding:30px;text-align:center;" ng-show="!loadingHeroes">
+            <h1>No heroes/abilities selected</h1>
+            <i class="fa fa-frown-o" style="font-size:100px;margin:10px 0;"></i>
+            <h2>Please pick some using the sidebar</h2>
         </div>
-        <div class="description flex dim">{{heroes}}</div>
     </div>
 </div>

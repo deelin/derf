@@ -32,6 +32,8 @@ class HeroView(mixins.ListModelMixin, generics.GenericAPIView):
     serializer_class = HeroSerializer
 
     def get(self, request, *args, **kwargs):
+        import time
+        time.sleep(2)
         return self.list(request, *args, **kwargs)
 
 

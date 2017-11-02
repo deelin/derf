@@ -18,21 +18,21 @@
 
 
 .card.sidebar{
-    
+    width:224px;
 }
-.card.sidebar .hero{
+.card.sidebar hero-selector{
     margin-bottom:30px;
 }
-.card.sidebar .hero-select{
+.card.sidebar hero-selector .hero-select{
     margin-bottom:10px;
     position:relative;
 }
-.card.sidebar .hero-select .title{
+.card.sidebar hero-selector .hero-select .title{
     padding:10px;
     border:1px solid rgba(255,255,255,0.1);
     border-radius:2px;
 }
-.card.sidebar .hero-select .options{
+.card.sidebar hero-selector .hero-select .options{
     display:none;
     position:absolute;
     top:100%;
@@ -40,23 +40,24 @@
     right:0;
     background:#34495e;
 }
-.card.sidebar .hero-select:hover .options{
+.card.sidebar hero-selector .hero-select:hover .options{
     display:initial;
 }
-.card.sidebar .hero-select .options .option{
+.card.sidebar hero-selector .hero-select .options .option{
     padding:10px;
     border-left:3px solid transparent;
     cursor:pointer;
 }
-.card.sidebar .hero-select .options .option:hover{
+.card.sidebar hero-selector .hero-select .options .option:hover,
+.card.sidebar hero-selector .hero-select .options .option.selected{
     border-left-color: #2980b9;
 }
 
-.card.sidebar .hero .abilities{
+.card.sidebar hero-selector .abilities{
     margin-bottom:10px;
 }
-.card.sidebar .hero .abilities .ability{
-    margin:0 5px;
+.card.sidebar hero-selector .abilities .ability{
+    margin:0 5px 5px;
     width:40px;
     height:40px;
     background:white;
@@ -64,11 +65,11 @@
     border:3px solid rgba(0,0,0,0.2);
     cursor:pointer;
 }
-.card.sidebar .hero .abilities .ability:hover,
-.card.sidebar .hero .abilities .ability.selected{
+.card.sidebar hero-selector .abilities .ability:hover,
+.card.sidebar hero-selector .abilities .ability.selected{
     border-color:#2980b9;
 }
-.card.sidebar .hero .description{
+.card.sidebar hero-selector .description{
     margin-bottom:20px;
     padding:0 5px;
     font-size: 12px;
