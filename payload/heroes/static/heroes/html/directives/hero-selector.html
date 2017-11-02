@@ -1,11 +1,26 @@
 <div class="hero-select">
-    <div class="title">{{selectedHero.name}}
+    <div class="title">
+        <div class="hero-option layout horizontal">
+            <div class="hero-option-icon"
+                 style="background-image:url({{selectedHero.icon}})" />
+            <div class="flex">
+                {{selectedHero.name}}
+            </div>
+        </div>
         <i class="fa fa-angle-down" style='float:right;'></i>
     </div>
     <div class="options">
         <div class="option" ng-repeat="hero in heroes"
             ng-class="{'selected':hero.id==selectedHero.id}"
-            ng-click="setHero(hero)">{{hero.name}}</div>
+            ng-click="setHero(hero)">
+            <div class="hero-option layout horizontal">
+                <div class="hero-option-icon"
+                     style="background-image:url({{hero.icon}})" />
+                <div class="flex">
+                    {{hero.name}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="abilities layout horizontal wrap">
@@ -14,6 +29,11 @@
     </div>
     <div class="ability" ng-repeat="ability in abilities"
         ng-class="{'selected':ability==selectedAbility}"
-        ng-click="setAbility(ability)"></div>
+        ng-click="setAbility(ability)">
+        <div class="ability-icon-container">
+            <div class="ability-icon"
+                 style="background-image:url({{ability.icon}})" />
+        </div>
+    </div>
 </div>
 <div class="description dim">{{selectedHero.description}}</div>

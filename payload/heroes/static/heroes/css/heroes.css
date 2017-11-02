@@ -61,9 +61,9 @@
     margin:0 5px 5px;
     width:40px;
     height:40px;
-    background:white;
+    background:rgba(0,0,0,0);
     border-radius:100%;
-    border:3px solid rgba(0,0,0,0.2);
+    border:3px solid rgba(255,255,255,0.2);
     cursor:pointer;
 }
 .card.sidebar hero-selector .abilities .ability:hover,
@@ -91,4 +91,26 @@
 }
 .card.content .description{
     
+}
+
+.hero-option-icon{
+    height:30px;
+    width:30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.ability-icon-container{
+    height:40px;
+    width:40px;
+}
+
+.ability-icon{
+    height:36px;
+    width:36px;
+    margin:2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
