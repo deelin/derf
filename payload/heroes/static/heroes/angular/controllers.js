@@ -66,5 +66,6 @@ heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', '$sce
         // INIT
         // //////////////////
         $scope.getInteraction();
+        console.log($scope.interaction)
     }
 ]);

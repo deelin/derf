@@ -25,9 +25,6 @@
         </div>
     </div>
 </div>
-<div class="label">Description</div>
-<div class="description">{{selectedHero.description}}</div>
-
 <div class="label">Abilities</div>
 <div class="abilities layout horizontal wrap">
     <div ng-if="loadingAbilities" style="text-align:center;width:100%;">
@@ -39,3 +36,6 @@
         <div class="rounded-image" style="background-image:url({{ability.icon}})"></div>
     </div>
 </div>
+
+<div class="label">Description</div>
+<div class="description">{{ability.description}}</div>

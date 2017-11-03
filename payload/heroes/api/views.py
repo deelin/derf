@@ -15,8 +15,6 @@ class AbilityView(mixins.ListModelMixin, generics.GenericAPIView):
     serializer_class = AbilitySerializer
 
     def get_queryset(self):
-        import time
-        time.sleep(1)
         hero_id = self.request.query_params.get('hero_id', '')
 
         abilities = Ability.objects.filter(icon__isnull=False)
@@ -36,8 +34,6 @@ class HeroView(mixins.ListModelMixin, generics.GenericAPIView):
     serializer_class = HeroSerializer
 
     def get(self, request, *args, **kwargs):
-        import time
-        time.sleep(1)
         return self.list(request, *args, **kwargs)
 
 
@@ -49,8 +45,7 @@ class InteractionView(mixins.RetrieveModelMixin, generics.GenericAPIView):
     serializer_class = InteractionSerializer
 
     def get(self, request, format=None):
-        import time
-        time.sleep(1)
+        import pdb; pdb.set_trace()
         ability1 = request.GET.get('ability1', '')
         ability2 = request.GET.get('ability2', '')
 
