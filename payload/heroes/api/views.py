@@ -45,7 +45,6 @@ class InteractionView(mixins.RetrieveModelMixin, generics.GenericAPIView):
     serializer_class = InteractionSerializer
 
     def get(self, request, format=None):
-        import pdb; pdb.set_trace()
         ability1 = request.GET.get('ability1', '')
         ability2 = request.GET.get('ability2', '')
 
