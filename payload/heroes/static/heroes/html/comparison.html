@@ -1,6 +1,12 @@
-<div class="video" ng-if="interaction.video">
+<div class="layout vertical" ng-show="interactionError">
+    <h1 class="flex self-center" style="opacity:0.5">BOOP</h1>
+    <img class="error-hacked flex" src="/static/heroes/img/hacked.png"/>
+    <h3 class="flex self-center" style="opacity:0.5">More hero interactions are on their way!</h3>
+</div>
+
+<div class="video" ng-if="interaction.video" ng-hide="interactionError">
     <video src="{{interaction.video}}" height="100%" controls>
         Your browser does not support the video tag.
     </video>
 </div>
-<div class="description flex dim">{{interaction.description}}</div>
+<div class="description flex" ng-hide="interactionError">{{interaction.description}}</div>

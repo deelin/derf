@@ -83,11 +83,15 @@
     
 }
 .card.content .video{
-    margin-bottom:20px;
-    max-height:450px;
+    margin: 20px auto 0px;
+    max-height:500px;
 }
 .card.content .description{
-    
+    margin: 20px auto;
+    padding: 20px;
+    font-size:14px;
+    width:100%;
+    background-color: rgba(255,255,255,0.05);
 }
 
 .rounded-image-container{
@@ -131,4 +135,10 @@
 }
 .ability-image:hover{
     border-color:#2980b9;
+}
+.error-hacked{
+    width:400px;
+    height:400px;
+    opacity:0.5;
+    margin:0px auto;
 }

@@ -23,7 +23,6 @@ heroControllers.controller('mainCtrl', ['$scope', '$rootScope', '$http', '$state
             })
             .error(function(data){
                 $scope.loadingHeroes = false;
-                alert("error loading heroes")
             })
         }
         
@@ -56,7 +55,7 @@ heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', '$sce
             })
             .error(function(data){
                 $scope.loadingInteration = false;
-                alert("error loading interaction")
+                $scope.interactionError = true
             })
         }
 
@@ -66,6 +65,5 @@ heroControllers.controller('comparisonCtrl', ['$scope', '$http', '$state', '$sce
         // INIT
         // //////////////////
         $scope.getInteraction();
-        console.log($scope.interaction)
     }
 ]);
