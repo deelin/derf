@@ -90,6 +90,7 @@
     margin: 20px auto;
     padding: 20px;
     font-size:14px;
+    opacity:0.8;
     width:100%;
     background-color: rgba(255,255,255,0.05);
 }
