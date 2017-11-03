@@ -35,8 +35,8 @@ button{
 
 
 .logo{
-    height: 100px;
-    width: 100px;
+    height: 175px;
+    width: 175px;
     background-image: url("/static/heroes/img/logos/pp_logo.png");
     background-size: contain;
     background-repeat: no-repeat;
